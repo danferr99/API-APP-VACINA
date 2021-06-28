@@ -21,6 +21,7 @@ app.use('/auth', Authroutes );
 app.use('/paciente', routes);
 app.use('/vacina', routes2);
 
+app.options('*', cors());
 app.listen(process.env.PORT || 3334, () => {
     console.log("Server running");
 });
