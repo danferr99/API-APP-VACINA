@@ -21,6 +21,8 @@ app.use('/auth', Authroutes );
 app.use('/paciente', routes);
 app.use('/vacina', routes2);
 
-module.exports = app.listen(process.env.PORT || 3334, () => {
+app.listen(process.env.PORT || 3334, () => {
     console.log("Server running");
 });
+
+module.exports = app;
