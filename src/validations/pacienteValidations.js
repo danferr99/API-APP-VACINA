@@ -15,13 +15,13 @@ const PacienteValidationRules = () => {
         
         body('senha').notEmpty().withMessage("Senha obrigatória!!"),
         
-        body('peso').notEmpty().isLength({ min:1, max: Infinity}).withMessage("Inserir o peso!!"),
         
-        body('altura').notEmpty().isLength({ min:1, max: Infinity}).withMessage("Inserir a altura!!"),
+        
+       
         
        body('cpf').isLength({ min: 11, max: 11 }).withMessage('Tamanho deve ser de 11 caracteres'),
        
-        body('dataNascimento').notEmpty().withMessage("Data de Nascimento é obrigatória!!"),
+       
 
         body('email').custom(async (value) => {
             const resultadoPaciente = await pacienteServico.buscaPacientePorEmail(value);
