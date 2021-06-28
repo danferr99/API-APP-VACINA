@@ -7,7 +7,7 @@ module.exports.verificarToken = async (request, response, next) => {
         if (token == undefined)
             throw new Error();
         console.log('token ' + token[1]);
-        const data = jwt.verify(token[1], process.env.JWT_KEY);
+        const data = jwt.verify(token[1], "daniel");
 
         const paciente = await pacienteServico.buscaPacientePorEmail(data.email);
         if (!paciente) {
@@ -29,6 +29,6 @@ module.exports.gerarToken = (email, senha) => {
     if (paciente == null) {
         return ({ auth: false, token: null, message: "Error"});;
     }
-    const token = jwt.sign({ email: paciente.email }, process.env.JWT_KEY);
+    const token = jwt.sign({ email: paciente.email }, "daniel");
     return ({ auth: true, token: token, message : "OK!!" });
 }
